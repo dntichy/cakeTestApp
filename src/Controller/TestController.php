@@ -30,7 +30,11 @@ class TestController extends Controller
 
     public function index()
     {
+        $users = "asf";
+        $as = "dwdw";
 
+
+        $this->set('test', ['users', 'as']);
     }
 
 }
