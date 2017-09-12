@@ -11,7 +11,7 @@
 
         <?= $this->Form->create(); ?>
 
-        <?= $this->Form->input('email', ['value'=>'sad','label' =>__('Imelo')]); ?>
+        <?= $this->Form->input('email', ['label' =>__('Imelo')]); ?>
         <?= $this->Form->input('password',['label' =>__('Password')
         ]); ?>
         <?= $this->Form->submit('Login', array('class' => 'button')); ?>

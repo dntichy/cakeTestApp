@@ -61,8 +61,11 @@ class AppController extends Controller
             'authError' => 'Musíte sa prihlásiť.',
             // 'unauthorizedRedirect' => $this->referer()
 
-
         ]);
+
+        $this->Auth->allow(['index']);
+
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html

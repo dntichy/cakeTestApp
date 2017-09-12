@@ -109,13 +109,14 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function login(){
+    public function login()
+    {
 //var_dump($this->request->getData()["email"]);
 
-        if($this->request->is('post')) {
-            $user = $this->Auth->identify();
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify(); //ak je true
 //            var_dump($user);
-            if($user) {
+            if ($user) {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl(['controller' => 'users', 'action' => 'profile']));
 
@@ -124,35 +125,35 @@ class UsersController extends AppController
             $this->Flash->error(__("Your name or password is incorrect"));
 
         }
+
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->Flash->success('You are logged out');
         return $this->redirect($this->Auth->logout());
     }
 
-     public function profile() {
-
-     }
-
+    public function profile()
+    {
+        echo "1";
+    }
 
 
     public function initialize()
     {
         parent::initialize();
-
-        $this->Auth->allow(['add']);
-
-
+        $this->Auth->allow(['add',"register","logout"]);
     }
 
 
-    public function register(){
+    public function register()
+    {
         $user = $this->Users->newEntity();
-        if($this->request->is('post')){
+        if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
 
-            if($this->Users->save($user)){
+            if ($this->Users->save($user)) {
                 $this->Flash->success('You are successfuly registred, you can log in');
                 return $this->redirect(['action' => 'login']);
             } else {
@@ -164,11 +165,9 @@ class UsersController extends AppController
     }
 
 
-
     public function isAuthorized($user)
     {
-      return true;
-
+        return true;
         return parent::isAuthorized($user);
     }
 

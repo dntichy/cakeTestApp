@@ -25,7 +25,7 @@ use Cake\Event\Event;
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class TestController extends Controller
+class TestController extends AppController
 {
 
     public function index()
@@ -36,5 +36,16 @@ class TestController extends Controller
 
         $this->set('test', ['users', 'as']);
     }
+
+
+
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(['index']);
+    }
+
+
 
 }
