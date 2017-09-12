@@ -136,7 +136,7 @@ class UsersController extends AppController
 
     public function profile()
     {
-        echo "1";
+        $this->set('userProfile', $this ->Auth -> user());
     }
 
 
