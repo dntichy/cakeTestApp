@@ -45,6 +45,7 @@ $cakeDescription = 'testCakeApp';
         <ul class="right">
             <?php
             if ($this->request->Session()->read('Auth.User')) {
+                echo '<li><a target="" href="/cakeTestApp/users/profile">Profil</a></li>';
                 echo '<li><a target="" href="/cakeTestApp/users/logout">Logout</a></li>';
             } else {
                 echo "<li><a href='/cakeTestApp/users/login'>Login</a></li>";
