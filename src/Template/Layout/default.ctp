@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'testCakeApp';
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,30 +28,56 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
-
+    <?= $this->Html->meta('icon') ?>
+    <?= $this->Html->css('home.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
+<nav class="top-bar expanded" data-topbar role="navigation">
+    <ul class="title-area large-3 medium-4 columns">
+        <li class="name">
+            <h1><a href="">Controller => <?= $this->fetch('title') ?></a></h1>
+        </li>
+    </ul>
+    <div class="top-bar-section">
+        <ul class="right">
+            <?php
+            if ($this->request->Session()->read('Auth.User')) {
+                echo '<li><a target="" href="/cakeTestApp/users/logout">Logout</a></li>';
+            } else {
+                echo "<li><a href='/cakeTestApp/users/login'>Login</a></li>";
+                echo '<li><a target="" href="/cakeTestApp/users/register">Registration</a></li>';
+                //do not login
+            }
+            ?>
+
+
         </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
+    </div>
+</nav>
+<?= $this->Flash->render() ?>
+<div class="container clearfix">
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+
+        <ul class="side-nav">
+            <li><?= $this->Html->link(__('Home'), ['controller' => 'Pages', 'action' => 'display', 'home']); ?>
+            </li>
+            <li><?= $this->Html->link(__('Users'), ['controller' => 'users', 'action' => 'index']); ?>
+            </li>
+            <li><?= $this->Html->link(__('News'), ['controller' => 'news', 'action' => 'index']) ?>
+            </li>
+
+        </ul>
+
+
     </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="users index large-9 medium-8 columns content">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+</div>
+<footer>
+</footer>
 </body>
 </html>

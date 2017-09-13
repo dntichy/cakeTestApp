@@ -63,7 +63,12 @@ class AppController extends Controller
 
         ]);
 
-        $this->Auth->allow(['index']);
+        $this->Auth->allow(
+            ['controller' => 'pages', 'action' => 'display', 'index']
+        );
+        $this->Auth->allow(
+            ['login', 'register']
+        );
 
 
         /*

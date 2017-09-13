@@ -138,14 +138,6 @@ class UsersController extends AppController
         $this->set('userProfile', $this ->Auth -> user());
     }
 
-
-     public function initialize()
-    {
-        parent::initialize();
-        $this->Auth->allow(['add',"register","logout"]);
-    }
-
-
     public function register()
     {
         $user = $this->Users->newEntity();

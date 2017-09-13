@@ -1,8 +1,4 @@
 
-
-<br>
-
-<div class="index large-4 medium-4 large-offset-2 medium-offset-4 columns">
     <div class="panel">
 
 
@@ -19,4 +15,4 @@
 
 
     </div>
-</div>
+
