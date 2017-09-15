@@ -4,18 +4,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * News Entity
+ * Download Entity
  *
  * @property int $id
  * @property int $id_users
- * @property string $text
+ * @property string $path
  * @property string $title
+ * @property int $size
  * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
- * @property int $id_categories
- * @property string|resource $picture
  */
-class News extends Entity
+class Download extends Entity
 {
 
     /**

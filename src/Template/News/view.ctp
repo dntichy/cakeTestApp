@@ -31,6 +31,14 @@
             <th scope="row"><?= __('Modified') ?></th>
             <td><?= h($news->modified) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Picture') ?></th>
+            <td>
+                <?php
+                echo '<img src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($news->picture)).'"/>';
+                ?>
+            </td>
+        </tr>
     </table>
     <div class="row">
         <h4><?= __('Text') ?></h4>

@@ -4,14 +4,14 @@
   */
 ?>
 
-    <?= $this->Form->create($news) ?>
+    <?= $this->Form->create($download) ?>
     <fieldset>
-        <legend><?= __('Edit News') ?></legend>
+        <legend><?= __('Edit Download') ?></legend>
         <?php
             echo $this->Form->control('id_users');
-            echo $this->Form->control('text');
+            echo $this->Form->control('path');
             echo $this->Form->control('title');
-            echo $this->Form->control('id_categories');
+            echo $this->Form->control('size');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

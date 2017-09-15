@@ -25,10 +25,6 @@ class NewsController extends AppController
         $this->set(compact('news'));
         $this->set('_serialize', ['news']);
     }
-    public function show() {
-
-
-    }
 
     /**
      * View method
@@ -57,6 +53,13 @@ class NewsController extends AppController
         $news = $this->News->newEntity();
         if ($this->request->is('post')) {
             $news = $this->News->patchEntity($news, $this->request->getData());
+
+            //potrebné pre uloženie blobu do db
+            $photo =  $this->request->getData()['picture'];
+            $fileData = fread(fopen($photo["tmp_name"],"r"),$photo["size"]);
+            $news['picture'] = $fileData;
+            ///////////////////////////////////
+
             if ($this->News->save($news)) {
                 $this->Flash->success(__('The news has been saved.'));
 
@@ -112,13 +115,13 @@ class NewsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+
     public function isAuthorized($user)
     {
         return true;
         return parent::isAuthorized($user);
     }
-
-
-
 
 }

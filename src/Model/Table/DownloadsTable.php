@@ -7,19 +7,19 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * News Model
+ * Downloads Model
  *
- * @method \App\Model\Entity\News get($primaryKey, $options = [])
- * @method \App\Model\Entity\News newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\News[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\News|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\News patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\News[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\News findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Download get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Download newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Download[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Download|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Download patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Download[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Download findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class NewsTable extends Table
+class DownloadsTable extends Table
 {
 
     /**
@@ -32,7 +32,7 @@ class NewsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('news');
+        $this->setTable('downloads');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 
@@ -57,23 +57,18 @@ class NewsTable extends Table
             ->notEmpty('id_users');
 
         $validator
-            ->requirePresence('text', 'create')
-            ->notEmpty('text');
+            ->requirePresence('path', 'create')
+            ->notEmpty('path');
 
         $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
         $validator
-            ->integer('id_categories')
-            ->requirePresence('id_categories', 'create')
-            ->notEmpty('id_categories');
+            ->integer('size')
+            ->requirePresence('size', 'create')
+            ->notEmpty('size');
 
-        $validator
-            ->allowEmpty('picture');
-
-        $validator
-            ->allowEmpty('picture');
         return $validator;
     }
 }

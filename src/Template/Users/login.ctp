@@ -1,5 +1,5 @@
 
-    <div class="panel">
+    <div class="panel large-6 medium-6 columns">
 
 
         <h2 class="text-center"><?= __('Login')?></h2>

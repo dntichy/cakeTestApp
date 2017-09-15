@@ -1,6 +1,7 @@
 
 
-    <div class="panel">
+
+<div class="panel large-6 medium-6 columns">
         <h2 class="text-center"><?=__('Registration'); ?></h2>
         <?= $this->Form->create($user); ?>
         <?= $this->Form->input(__('user_name')); ?>
