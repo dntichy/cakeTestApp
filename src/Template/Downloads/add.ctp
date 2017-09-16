@@ -4,14 +4,13 @@
   */
 ?>
 
-    <?= $this->Form->create($download) ?>
+    <?= $this->Form->create($download, ['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add Download') ?></legend>
         <?php
-            echo $this->Form->control('id_users');
-            echo $this->Form->control('path');
             echo $this->Form->control('title');
-            echo $this->Form->control('size');
+            echo $this->Form->control('file',['type' => 'file', 'label' => 'File']);
+
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

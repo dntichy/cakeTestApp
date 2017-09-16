@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Filesystem\File;
 
 /**
  * Downloads Controller
@@ -53,11 +54,29 @@ class DownloadsController extends AppController
         $download = $this->Downloads->newEntity();
         if ($this->request->is('post')) {
             $download = $this->Downloads->patchEntity($download, $this->request->getData());
-            if ($this->Downloads->save($download)) {
-                $this->Flash->success(__('The download has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            if (!empty($this->request->getData()['file']['name'])) {
+                $fileName = $this->request->getData()['file']['name'];
+                //var_dump($this->request->getData()['file']);
+                $uploadPath = 'uploads/files/';
+                $uploadFile = $uploadPath . $fileName;
+                if (move_uploaded_file($this->request->getData()['file']['tmp_name'], $uploadFile)) {
+                    $download->id_users = $this->Auth->user('id');
+                    var_dump($this->Auth->user('id'));
+                    $download->filename = $fileName;
+                    $download->path = $uploadPath;
+                    $download->size = $this->request->getData()['file']['size'];;
+                    $download->created = date("Y-m-d H:i:s");
+
+                    if ($this->Downloads->save($download)) {
+                        $this->Flash->success(__('The download has been saved.'));
+                        return $this->redirect(['action' => 'index']);
+                    }
+
+                }
             }
+
+
             $this->Flash->error(__('The download could not be saved. Please, try again.'));
         }
         $this->set(compact('download'));
@@ -100,12 +119,25 @@ class DownloadsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $download = $this->Downloads->get($id);
+
         if ($this->Downloads->delete($download)) {
+
+            $file = new File($download->path . DS . $download->filename);
+            $file->delete();
+            $file->close();
+
             $this->Flash->success(__('The download has been deleted.'));
+
         } else {
             $this->Flash->error(__('The download could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function isAuthorized($user)
+    {
+        return true;
+        return parent::isAuthorized($user);
     }
 }

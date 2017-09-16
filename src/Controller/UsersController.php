@@ -142,7 +142,21 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+
+            //figure out gender from combo box
+switch ($this->request->getData()['gender']){
+    case 0:
+        $result = "none";
+        break;
+    case 1:
+        $result = "male";
+        break;
+    case 2:
+        $result = "female";
+        break;
+}
+            $user->gender = $result; //set gender
 
             if ($this->Users->save($user)) {
                 $this->Flash->success('You are successfuly registred, you can log in');

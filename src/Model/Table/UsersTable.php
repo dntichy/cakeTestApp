@@ -62,15 +62,15 @@ class UsersTable extends Table
             ->allowEmpty('last_name');
 
         $validator
-            ->requirePresence('gender', 'create')
-            ->notEmpty('gender');
+            ->allowEmpty('gender');
 
         $validator
             ->allowEmpty('birth_number');
 
         $validator
             ->email('email')
-            ->allowEmpty('email');
+            ->requirePresence('email', 'create');
+
 
         $validator
             ->requirePresence('password', 'create')
