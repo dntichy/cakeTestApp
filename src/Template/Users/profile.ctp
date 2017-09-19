@@ -27,3 +27,9 @@
       <tr><td><?= "Gender: ";?></td><td><?=  $userProfile['gender']?></td></tr>
 
    </table>
+<br>
+    <?= $this->Form->create($user, ['type'=>'file']) ?>
+    <?php
+    echo $this->Form->control('avatar', ['type'=>'file']);    ?>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
