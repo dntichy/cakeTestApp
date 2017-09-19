@@ -73,9 +73,6 @@ class NewsTable extends Table
             ->integer('id_categories')
             ->allowEmpty('id_categories');
 
-
-        $validator
-            ->allowEmpty('picture');
         return $validator;
     }
 }

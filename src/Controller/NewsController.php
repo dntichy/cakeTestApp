@@ -68,10 +68,13 @@ class NewsController extends AppController
             $news = $this->News->patchEntity($news, $this->request->getData());
 
             //potrebné pre uloženie blobu do db
-            if($this->request->getData()['picture']['tmp_name'] != ""){
-            $photo =  $this->request->getData()['picture'];
-            $fileData = fread(fopen($photo["tmp_name"],"r"),$photo["size"]);
-            $news['picture'] = $fileData;}
+            if ($this->request->getData()['picture']['tmp_name'] != "") {
+                $photo = $this->request->getData()['picture'];
+                $fileData = fread(fopen($photo["tmp_name"], "r"), $photo["size"]);
+                $news->picture = $fileData;
+            } else {
+                $news->picture = null; //potrebné aby nebol error pri save()
+            }
             ///////////////////////////////
 
             $news->id_users= $this->Auth->user('id'); //idcko aktualneho uzivatela
