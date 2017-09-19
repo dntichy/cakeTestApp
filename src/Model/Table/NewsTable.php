@@ -37,6 +37,11 @@ class NewsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Categories', [
+            'foreignKey' => 'id_categories',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -66,11 +71,8 @@ class NewsTable extends Table
 
         $validator
             ->integer('id_categories')
-            ->requirePresence('id_categories', 'create')
-            ->notEmpty('id_categories');
+            ->allowEmpty('id_categories');
 
-        $validator
-            ->allowEmpty('picture');
 
         $validator
             ->allowEmpty('picture');

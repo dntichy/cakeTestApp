@@ -1,6 +1,6 @@
 <?php
 
-//$this->layout = false;
+//$this->layout = "new";
 ?>
 
 
