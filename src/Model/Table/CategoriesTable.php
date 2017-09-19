@@ -33,6 +33,7 @@ class CategoriesTable extends Table
         $this->setTable('categories');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+
     }
 
     /**
