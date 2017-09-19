@@ -137,6 +137,11 @@ class NewsController extends AppController
     }
 
 
+    public function show(){
+        //todo PATRIK
+        //select z DB find('all')
+        //na view pošli objekt z databazy set()
+    }
 
     public function isAuthorized($user)
     {
