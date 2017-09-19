@@ -77,6 +77,7 @@ $cakeDescription = 'testCakeApp';
             </li>
             <li><?= $this->Html->link(__('Photos'), ['controller' => 'photos', 'action' => 'index']) ?>
             </li>
+
         </ul>
 
 

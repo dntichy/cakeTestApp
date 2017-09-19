@@ -12,7 +12,7 @@
             <td><?= h($photo->path) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Filename') ?></th>
+            <th scope="row"><?= __('Filename') ?></th>  
             <td><?= h($photo->filename) ?></td>
         </tr>
         <tr>

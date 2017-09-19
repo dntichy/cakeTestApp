@@ -62,7 +62,7 @@ class DownloadsController extends AppController
                 $uploadFile = $uploadPath . $fileName;
                 if (move_uploaded_file($this->request->getData()['file']['tmp_name'], $uploadFile)) {
                     $download->id_users = $this->Auth->user('id');
-                    var_dump($this->Auth->user('id'));
+                  //  var_dump($this->Auth->user('id'));
                     $download->filename = $fileName;
                     $download->path = $uploadPath;
                     $download->size = $this->request->getData()['file']['size'];;

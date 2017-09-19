@@ -5,9 +5,17 @@
     <table cellpadding="0" cellspacing="0" border="1px solid black">
 
 
-        <tr><td rowspan="5" width="20%"><?= "Avatar";?></td><td><?= "Username: ";?></td><td><?=  $userProfile['user_name']?></td></tr>
+        <tr><td rowspan="5" width="20%">
 
-    <tr><td><?= "Name: ";?><td><?=  $userProfile['first_name']?></td></tr>
+                <?php
+                echo '<img src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($usr['avatar'])).'"/>';
+                ?>
+            </td>
+
+
+            <td><?= "Username: ";?></td><td><?=  $userProfile['user_name']?></td></tr>
+
+    <tr><td><?= "Name: ";?><td><?=  $userProfile['first_name'] ?></td></tr>
 
 
       <tr><td><?= "Surname: ";?><td><?=  $userProfile['last_name']?></td></tr>

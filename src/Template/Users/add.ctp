@@ -4,7 +4,7 @@
   */
 ?>
 
-    <?= $this->Form->create($user) ?>
+    <?= $this->Form->create($user, ['type'=>'file']) ?>
     <fieldset>
         <legend><?= __('Add User') ?></legend>
         <?php
@@ -14,6 +14,7 @@
             echo $this->Form->control('gender');
             echo $this->Form->control('birth_number');
             echo $this->Form->control('email');
+            echo $this->Form->control('avatar', ['type'=>'file']);
             echo $this->Form->control('password');
         ?>
     </fieldset>

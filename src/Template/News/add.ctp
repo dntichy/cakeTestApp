@@ -8,7 +8,6 @@
     <fieldset>
         <legend><?= __('Add News') ?></legend>
         <?php
-            echo $this->Form->control('id_users');
             echo $this->Form->control('text');
             echo $this->Form->control('title');
         echo $this->Form->control('picture',['type' => 'file', 'label' => 'Category picture']);
