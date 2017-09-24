@@ -35,7 +35,11 @@
             <th scope="row"><?= __('Picture') ?></th>
             <td>
                 <?php
-                echo '<img src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($news->picture)).'"/>';
+           if($news['picture']==null){
+           echo "bez foto";
+
+           }else{
+     echo '<img  src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($news['picture'])).'"/>';};
                 ?>
             </td>
         </tr>

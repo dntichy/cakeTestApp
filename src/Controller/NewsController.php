@@ -42,6 +42,7 @@ class NewsController extends AppController
 
         $this->set('news', $news);
         $this->set('_serialize', ['news']);
+
     }
 
     /**
