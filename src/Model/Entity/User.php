@@ -47,4 +47,9 @@ class User extends Entity
         $haser = new DefaultPasswordHasher();
         return $haser->hash($value);
     }
+
+    protected function _getLabel()
+    {
+        return $this->_properties['first_name'] . ' ' . $this->_properties['last_name'];
+    }
 }

@@ -77,6 +77,10 @@ $cakeDescription = 'testCakeApp';
             </li>
             <li><?= $this->Html->link(__('Photos'), ['controller' => 'photos', 'action' => 'index']) ?>
             </li>
+            <li><?= $this->Html->link(__('Roles'), ['controller' => 'roles', 'action' => 'index']) ?>
+            </li>
+            <li><?= $this->Html->link(__('Users Roles'), ['controller' => 'UsersRoles', 'action' => 'index']) ?>
+            </li>
 
         </ul>
 
