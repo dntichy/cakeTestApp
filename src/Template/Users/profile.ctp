@@ -12,7 +12,7 @@
            echo "bez foto";
 
            }else{
-     echo '<img src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($usr['avatar'])).'"/>';};
+     echo '<img  src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($usr['avatar'])).'"/>';};
                 ?>
             </td>
 
