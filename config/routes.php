@@ -44,6 +44,11 @@ use Cake\Routing\Route\DashedRoute;
 Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
+//pre rest api davam tieto 2 veci
+    $routes->extensions(['json']);
+    $routes->resources('Users');
+
+
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file
