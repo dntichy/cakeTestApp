@@ -83,6 +83,9 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+
+        $this->viewBuilder()->setLayout('new'); //nastav layout
+
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
