@@ -142,12 +142,15 @@ class NewsController extends AppController
         //todo PATRIK
         //select z DB find('all')
         //na view pošli objekt z databazy set()
+        $news = $this->News->find('all');
+        //var_dump($news);
+        $this->set(compact("news"));
     }
 
     public function isAuthorized($user)
     {
         return true;
-        return parent::isAuthorized($user);
+        return parent::isAuthorized($user );
     }
 
 }

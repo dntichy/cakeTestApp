@@ -7,13 +7,13 @@
 
         <tr><td rowspan="5" width="20%">
 
-                <?php
-           if($usr['avatar']==null){
-           echo "bez foto";
+                    <?php
+               if($usr['avatar']==null){
+               echo "bez foto";
 
-           }else{
-     echo '<img  src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($usr['avatar'])).'"/>';};
-                ?>
+               }else{
+         echo '<img  src="data:image/jpeg;base64,'.base64_encode(stream_get_contents($usr['avatar'])).'"/>';};
+                    ?>
             </td>
 
 
